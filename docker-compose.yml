@@ -6,15 +6,15 @@ services:
     ports:
       - "3000:3000"
     container_name: node-app
+    restart: always
 
   nginx:
     image: nginx:latest
     ports:
-      - "8081:80"   # Change port to 8081 to avoid Jenkins conflict
+      - "8081:80"   # Changed port to 8081 to avoid Jenkins conflict
     volumes:
-      volumes:
-  - ./nginx.conf:/etc/nginx/nginx.conf
-
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Corrected syntax for volume
     depends_on:
       - node-app
     container_name: nginx
+    restart: always
