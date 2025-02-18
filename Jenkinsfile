@@ -2,15 +2,15 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_CREDENTIALS = "docker-hub-credentials"
+        DOCKER_CREDENTIALS = "DockerHub-access-token"
     }
 
     stages { 
 
         stage('Clone Repository') {
     steps {
-        withCredentials([string(credentialsId: 'github-pat', variable: 'GITHUB_PAT')]) {
-            sh 'git clone https://$GITHUB_PAT@github.com/saadiqkhn/node-nginx-app.git'
+        withCredentials([string(credentialsId: 'Node-pipeline', variable: 'GITHUB_PAT')]) {
+            sh 'git clone https://$GITHUB_PAT@github.com/TahirBaltee/node-nginx-app.git'
         }
     }
 }
