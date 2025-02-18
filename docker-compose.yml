@@ -6,15 +6,3 @@ services:
     ports:
       - "3000:3000"
     container_name: node-app
-    restart: always  # Ensure container auto-restarts if it crashes
-
-  nginx:
-    image: nginx:latest
-    ports:
-      - "8081:80"   # Change port to 8081 to avoid Jenkins conflict
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf  # Correct mount path
-    depends_on:
-      - node-app
-    container_name: nginx
-    restart: always  # Ensure auto-restart
