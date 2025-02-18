@@ -9,7 +9,7 @@ pipeline {
 
         stage('Clone Repository') {
     steps {
-        withCredentials([string(credentialsId: 'Node-pipeline', variable: 'GITHUB_PAT')]) {
+        withCredentials([string(credentialsId: 'GitHub-Token', variable: 'GITHUB_PAT')]) {
             sh 'git clone https://$GITHUB_PAT@github.com/TahirBaltee/node-nginx-app.git'
         }
     }
