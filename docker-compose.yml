@@ -11,8 +11,8 @@ services:
     image: nginx:latest
     ports:
       - "8081:80"   # Change port to 8081 to avoid Jenkins conflict
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf  # Correct mount path for Nginx
+        volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Correct path
     depends_on:
       - node-app
     container_name: nginx
